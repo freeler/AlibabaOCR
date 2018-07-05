@@ -7,7 +7,7 @@ Android 仿IOS Dialog UI样式 ,通过纯代码实现 ,不用导入额外的图�
 ## Screenshot
 
 ![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/Screenshot_20180705_1.png)
-![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/Screenshot_20180705_2.png)
+![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/Screenshot_20180704_2.png)
 
 
 ## 使用
