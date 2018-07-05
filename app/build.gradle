@@ -29,7 +29,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.alibaba:fastjson:1.2.5'
     //图片裁剪
     implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
     //图片压缩
