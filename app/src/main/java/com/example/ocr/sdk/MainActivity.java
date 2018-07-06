@@ -27,6 +27,7 @@ import com.alibaba.cloudapi.sdk.model.ApiRequest;
 import com.alibaba.cloudapi.sdk.model.ApiResponse;
 import com.example.ocr.BuildConfig;
 import com.example.ocr.R;
+import com.example.ocr.sdk.idcard.IDCardActivity;
 import com.example.ocr.sdk.utils.LuBanUtils;
 import com.ocr.aliocrlibrary.common.EnumOcrFace;
 import com.ocr.aliocrlibrary.http.OcrApi;
@@ -65,14 +66,23 @@ public class MainActivity extends AppCompatActivity {
         //需要初始化阿里身份证识别的key
         OcrApi.getInstance().setKey("你的appKey", "你的AppSecret");
 
+
         mIV = findViewById(R.id.mIV);
         mCropIV = findViewById(R.id.mCropIV);
         mOcrTv = findViewById(R.id.mOcrTv);
         Button mBtn = findViewById(R.id.mBtn);
+        Button mIdCardBtn = findViewById(R.id.mIdCardBtn);
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 checkAllPermission();
+            }
+        });
+
+        mIdCardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, IDCardActivity.class));
             }
         });
     }
