@@ -1,8 +1,8 @@
-# IOSDialog
+# AlibabaOCR
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
  [ ![Download](https://api.bintray.com/packages/freeleragain/maven/AlibabaOCR/images/download.svg) ](https://bintray.com/freeleragain/maven/AlibabaOCR/_latestVersion)
 
-Android 仿IOS Dialog UI样式 ,通过纯代码实现 ,不用导入额外的图片 ,可定制化能力强
+Android 接入阿里巴巴身份证识别
 
 ## Screenshot
 
