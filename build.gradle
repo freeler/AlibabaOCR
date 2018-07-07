@@ -30,3 +30,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext{
+    // 相关依赖库版本
+    ocrVersion = '1.1.1'
+}

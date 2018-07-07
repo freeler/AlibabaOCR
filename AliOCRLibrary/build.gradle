@@ -38,14 +38,14 @@ dependencies {
 
 //上传到jcenter
 Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
+properties.load(rootProject.file('local.properties').newDataInputStream())
 
 publish {
     userOrg = 'freeleragain' //用户所在组织
     repoName = 'maven' //远程仓库名称，默认maven
     groupId = 'com.freeler' // 包名 jcenter上的路径
     artifactId = 'AlibabaOCR' // library的名字
-    publishVersion = '1.1.0' // 版本号
+    publishVersion = rootProject.ext.ocrVersion // 版本号
     desc = '阿里云身份证识别' // 描述
     website = 'https://github.com/freeler/AlibabaOCR'
     bintrayUser = properties.getProperty("bintray.user") // 账户名
