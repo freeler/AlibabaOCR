@@ -1,13 +1,14 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.example.ocr.sdk.idcard;
+package com.example.ocr.sdk;
 
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,6 +17,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.cloudapi.sdk.model.ApiCallback;
@@ -23,6 +25,7 @@ import com.alibaba.cloudapi.sdk.model.ApiRequest;
 import com.alibaba.cloudapi.sdk.model.ApiResponse;
 import com.example.ocr.R;
 import com.example.ocr.sdk.utils.FileUtil;
+import com.ocr.aliocrlibrary.camera.CameraActivity;
 import com.ocr.aliocrlibrary.common.EnumOcrFace;
 import com.ocr.aliocrlibrary.http.OcrApi;
 import com.ocr.aliocrlibrary.utils.HttpResult;
@@ -41,6 +44,7 @@ public class IDCardActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_CAMERA = 102;
 
     private TextView infoTextView;
+    private ImageView ivCard;
     private AlertDialog.Builder alertDialog;
 
     private boolean checkGalleryPermission() {
@@ -59,8 +63,10 @@ public class IDCardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_idcard);
+
         alertDialog = new AlertDialog.Builder(this);
-        infoTextView = (TextView) findViewById(R.id.info_text_view);
+        infoTextView = findViewById(R.id.info_text_view);
+        ivCard = findViewById(R.id.iv_card);
 
 //        findViewById(R.id.gallery_button_front).setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -105,6 +111,7 @@ public class IDCardActivity extends AppCompatActivity {
                         FileUtil.getSaveFile(getApplication()).getAbsolutePath());
                 intent.putExtra(CameraActivity.KEY_CONTENT_TYPE, CameraActivity.CONTENT_TYPE_ID_CARD_BACK);
                 startActivityForResult(intent, REQUEST_CODE_CAMERA);
+
             }
         });
 
@@ -130,18 +137,21 @@ public class IDCardActivity extends AppCompatActivity {
                 String contentType = data.getStringExtra(CameraActivity.KEY_CONTENT_TYPE);
                 String filePath = FileUtil.getSaveFile(getApplicationContext()).getAbsolutePath();
                 if (!TextUtils.isEmpty(contentType)) {
+                    File file = new File(filePath);
                     if (CameraActivity.CONTENT_TYPE_ID_CARD_FRONT.equals(contentType)) {
-                        getOcrResult(new File(filePath));
+                        getOcrResult(file, EnumOcrFace.FACE);
+                        ivCard.setImageBitmap(BitmapFactory.decodeFile(filePath));
                     } else if (CameraActivity.CONTENT_TYPE_ID_CARD_BACK.equals(contentType)) {
-                        getOcrResult(new File(filePath));
+                        getOcrResult(file, EnumOcrFace.BACK);
+                        ivCard.setImageBitmap(BitmapFactory.decodeFile(filePath));
                     }
                 }
             }
         }
     }
 
-    private void getOcrResult(File file) {
-        OcrApi.getInstance().httpTest(file, EnumOcrFace.FACE, new ApiCallback() {
+    private void getOcrResult(File file, EnumOcrFace face) {
+        OcrApi.getInstance().httpTest(file, face, new ApiCallback() {
             @Override
             public void onFailure(ApiRequest apiRequest, Exception e) {
             }

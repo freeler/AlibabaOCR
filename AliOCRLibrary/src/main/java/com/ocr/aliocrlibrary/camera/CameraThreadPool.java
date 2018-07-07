@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.example.ocr.sdk.idcard;
+package com.ocr.aliocrlibrary.camera;
 
 import java.util.Timer;
 import java.util.TimerTask;

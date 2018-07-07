@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.example.ocr.sdk.idcard;
+package com.ocr.aliocrlibrary.camera;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -19,7 +19,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.example.ocr.R;
+import com.ocr.aliocrlibrary.R;
 
 import java.io.File;
 

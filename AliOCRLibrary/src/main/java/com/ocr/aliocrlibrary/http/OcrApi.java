@@ -9,7 +9,7 @@ import com.alibaba.cloudapi.sdk.constant.SdkConstant;
 import com.alibaba.cloudapi.sdk.model.ApiCallback;
 import com.alibaba.cloudapi.sdk.model.HttpClientBuilderParams;
 import com.ocr.aliocrlibrary.common.EnumOcrFace;
-import com.ocr.aliocrlibrary.utils.FileUtils;
+import com.ocr.aliocrlibrary.utils.FileUtil;
 
 import java.io.File;
 import java.security.KeyManagementException;
@@ -95,7 +95,7 @@ public class OcrApi {
 
     public void httpTest(File file, EnumOcrFace face, ApiCallback callback) {
         checkNotNull();
-        String base64Img = FileUtils.fileToBase64(file);
+        String base64Img = FileUtil.fileToBase64(file);
         String body = "{\"inputs\":[{\"image\":{\"dataType\":50,\"dataValue\":\"" + base64Img + "\"},\"configure\":{\"dataType\":50,\"dataValue\":\"{\\\"side\\\":\\\"" + face.getSide() + "\\\"}\"}}]}";
         HttpApiClientDemo.getInstance().request(body.getBytes(SdkConstant.CLOUDAPI_ENCODING), callback);
 
@@ -103,7 +103,7 @@ public class OcrApi {
 
     public void httpsTest(File file, EnumOcrFace face, ApiCallback callback) {
         checkNotNull();
-        String base64Img = FileUtils.fileToBase64(file);
+        String base64Img = FileUtil.fileToBase64(file);
         String body = "{\"inputs\":[{\"image\":{\"dataType\":50,\"dataValue\":\"" + base64Img + "\"},\"configure\":{\"dataType\":50,\"dataValue\":\"{\\\"side\\\":\\\"" + face.getSide() + "\\\"}\"}}]}";
         HttpsApiClientDemo.getInstance().request(body.getBytes(SdkConstant.CLOUDAPI_ENCODING), callback);
     }

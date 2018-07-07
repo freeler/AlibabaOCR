@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.example.ocr.sdk.utils;
+package com.ocr.aliocrlibrary.utils;
 
 import android.graphics.BitmapFactory;
 import android.media.ExifInterface;

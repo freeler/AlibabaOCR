@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.example.ocr.sdk.idcard;
+package com.ocr.aliocrlibrary.camera;
 
 
 import android.content.Context;
@@ -17,7 +17,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.example.ocr.sdk.utils.DimensionUtil;
+import com.ocr.aliocrlibrary.utils.DimensionUtil;
 
 
 public class FrameOverlayView extends View {

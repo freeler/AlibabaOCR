@@ -27,7 +27,6 @@ import com.alibaba.cloudapi.sdk.model.ApiRequest;
 import com.alibaba.cloudapi.sdk.model.ApiResponse;
 import com.example.ocr.BuildConfig;
 import com.example.ocr.R;
-import com.example.ocr.sdk.idcard.IDCardActivity;
 import com.example.ocr.sdk.utils.LuBanUtils;
 import com.ocr.aliocrlibrary.common.EnumOcrFace;
 import com.ocr.aliocrlibrary.http.OcrApi;
@@ -55,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mIV;
     private ImageView mCropIV;
     private TextView mOcrTv;
+    private EnumOcrFace face = EnumOcrFace.FACE;
 
     private String[] allPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
@@ -67,14 +67,24 @@ public class MainActivity extends AppCompatActivity {
         OcrApi.getInstance().setKey("你的appKey", "你的AppSecret");
 
 
+
         mIV = findViewById(R.id.mIV);
         mCropIV = findViewById(R.id.mCropIV);
         mOcrTv = findViewById(R.id.mOcrTv);
+        Button mBtnFront = findViewById(R.id.mBtnFront);
         Button mBtn = findViewById(R.id.mBtn);
         Button mIdCardBtn = findViewById(R.id.mIdCardBtn);
+        mBtnFront.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                face = EnumOcrFace.FACE;
+                checkAllPermission();
+            }
+        });
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                face = EnumOcrFace.BACK;
                 checkAllPermission();
             }
         });
@@ -201,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void onSuccess(File file) {
                                     Log.i(TAG, "compressImg success");
                                     mCropIV.setImageBitmap(BitmapFactory.decodeFile(file.getAbsolutePath()));
-                                    getOcrResult(file);
+                                    getOcrResult(file, face);
                                 }
 
                                 @Override
@@ -217,8 +227,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void getOcrResult(File file) {
-        OcrApi.getInstance().httpTest(file, EnumOcrFace.FACE, new ApiCallback() {
+    private void getOcrResult(File file, EnumOcrFace face) {
+        OcrApi.getInstance().httpTest(file, face, new ApiCallback() {
             @Override
             public void onFailure(ApiRequest apiRequest, Exception e) {
             }

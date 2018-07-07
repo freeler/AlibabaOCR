@@ -26,8 +26,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     testImplementation 'junit:junit:4.12'
-//    implementation project(':AliOCRLibrary')
-    implementation 'com.freeler:AlibabaOCR:1.0.0'
+    implementation project(':AliOCRLibrary')
+//    implementation 'com.freeler:AlibabaOCR:1.0.0'
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     //图片裁剪

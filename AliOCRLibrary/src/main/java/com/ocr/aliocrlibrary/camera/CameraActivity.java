@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Baidu, Inc. All Rights Reserved.
  */
-package com.example.ocr.sdk.idcard;
+package com.ocr.aliocrlibrary.camera;
 
 import android.Manifest;
 import android.app.Activity;
@@ -24,7 +24,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.ocr.R;
+import com.ocr.aliocrlibrary.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -74,7 +74,6 @@ public class CameraActivity extends Activity {
             return false;
         }
     };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

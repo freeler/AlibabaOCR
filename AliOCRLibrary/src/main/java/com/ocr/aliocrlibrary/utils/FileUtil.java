@@ -13,7 +13,7 @@ import java.io.InputStream;
  * @date 2017/10/26.
  */
 
-public class FileUtils {
+public class FileUtil {
     /**
      * 文件转base64字符串
      *
@@ -43,4 +43,5 @@ public class FileUtils {
         }
         return base64;
     }
+
 }
