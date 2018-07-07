@@ -4,6 +4,8 @@
 
 Android 接入阿里巴巴身份证识别
 
+项目地址: [https://github.com/freeler/AlibabaOCR](https://github.com/freeler/AlibabaOCR)
+
 ## Screenshot
 
 ![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/Screenshot_20180705_1.png)
