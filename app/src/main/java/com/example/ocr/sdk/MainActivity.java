@@ -64,11 +64,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //需要初始化阿里身份证识别的key
-//        OcrApi.getInstance().setKey("你的appKey", "你的AppSecret");
+        OcrApi.getInstance().setKey("你的appKey", "你的AppSecret");
         //        OcrApi.getInstance().setKey("24952006",
 //                "44b54ea0d976eea002213bfdf7cb42db");
-        OcrApi.getInstance().setKey("23441924",
-                "83a951ee5f4f1901db43b14f1802b230");
+//        OcrApi.getInstance().setKey("23441924",
+//                "83a951ee5f4f1901db43b14f1802b230");
 
 
         mIV = findViewById(R.id.mIV);
