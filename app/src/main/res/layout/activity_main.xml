@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/mBtnFront"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toStartOf="@+id/mBtn"
+        android:text="拍照正面"
+        android:textColor="#262626"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/mBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="拍照反面"
+        android:textColor="#262626"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/mIdCardBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/mBtn"
+        android:text="身份证识别"
+        android:textColor="#262626"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/mIV"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/mBtn"
+        android:layout_marginTop="20dp" />
+
+    <ImageView
+        android:id="@+id/mCropIV"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/mBtn"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/mIV" />
+
+    <TextView
+        android:id="@+id/mOcrTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mIV"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp" />
+
+</RelativeLayout>

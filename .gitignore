@@ -11,5 +11,5 @@ gradlew
 gradlew.*
 .gitattributes
 
-*.xml
+
 文档.txt
