@@ -7,11 +7,23 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 
 import java.io.File;
+import java.io.IOException;
 
 public class FileUtil {
 
+    private static final String DEFAULT_DISK_CACHE_DIR = "ocr";
+
     public static File getSaveFile(Context context) {
-        File file = new File(context.getFilesDir(), "pic.jpg");
+////        地址内容手机目录找不到
+//        File file = new File(context.getFilesDir(), "pic.jpg");
+        File imageCacheDir = getImageCacheDir(context, DEFAULT_DISK_CACHE_DIR);
+        File file = null;
+        try {
+            // /storage/emulated/0/Android/data/com.example.ocr/cache/ocr/ocr_985486902.jpg
+            file = File.createTempFile("ocr_", ".jpg", imageCacheDir);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return file;
     }
 
