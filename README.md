@@ -7,9 +7,17 @@ Android 接入阿里巴巴身份证识别
 项目地址: [https://github.com/freeler/AlibabaOCR](https://github.com/freeler/AlibabaOCR)
 
 ## Screenshot
+- 普通拍照
+![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/front_0.png)
+![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/back_0.png)
 
-![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/Screenshot_20180705_1.png)
-![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/Screenshot_20180704_2.png)
+- 百度拍照相框
+![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/front_1.png)
+![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/front_2.png)
+![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/front_3.png)
+![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/back_1.png)
+![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/back_2.png)
+![](https://github.com/freeler/AlibabaOCR/blob/develop/screenshot/back_3.png)
 
 
 ## 使用
