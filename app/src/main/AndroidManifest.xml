@@ -35,6 +35,7 @@
         </activity>
 
         <activity android:name=".sdk.IDCardActivity"/>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
     </application>
 
 </manifest>
