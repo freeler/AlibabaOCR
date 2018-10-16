@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private static final String DEFAULT_DISK_CACHE_DIR = "luban_disk_cache";
+    private static final int REQUEST_PERMISSION_SETTING = 101;
     private final int REQUEST_CODE_TAKE_PHOTO = 1001;
     private final int FACE_CROP_IMG_CODE = 1002;
     private final int MY_PERMISSIONS_REQUEST = 10023;
@@ -160,7 +162,12 @@ public class MainActivity extends AppCompatActivity {
                 openCamera();
             } else {
                 // Permission Denied
-                Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, com.ocr.aliocrlibrary.R.string.camera_permission_required, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                intent.setData(uri);
+                startActivityForResult(intent, REQUEST_PERMISSION_SETTING);
+                finish();
             }
             return;
         }

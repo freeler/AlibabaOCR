@@ -17,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.view.Surface;
@@ -46,6 +47,7 @@ public class CameraActivity extends Activity {
     public static final String CONTENT_TYPE_PASSPORT = "passport";
 
     private static final int REQUEST_CODE_PICK_IMAGE = 100;
+    private static final int REQUEST_PERMISSION_SETTING = 101;
     private static final int PERMISSIONS_REQUEST_CAMERA = 800;
     private static final int PERMISSIONS_EXTERNAL_STORAGE = 801;
 
@@ -470,6 +472,12 @@ public class CameraActivity extends Activity {
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.camera_permission_required, Toast.LENGTH_LONG)
                             .show();
+
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    Uri uri = Uri.fromParts("package", getPackageName(), null);
+                    intent.setData(uri);
+                    startActivityForResult(intent, REQUEST_PERMISSION_SETTING);
+                    finish();
                 }
                 break;
             }
