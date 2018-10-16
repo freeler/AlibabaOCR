@@ -33,5 +33,5 @@ task clean(type: Delete) {
 
 ext{
     // 相关依赖库版本
-    ocrVersion = '1.1.2'
+    ocrVersion = '1.1.3'
 }
